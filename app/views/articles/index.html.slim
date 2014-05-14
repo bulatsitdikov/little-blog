@@ -1,0 +1,15 @@
+h1 Articles
+table
+  thead
+    tr
+      th Article
+      th colspan="4"
+  tbody
+    - @articles.each do |article|
+      tr
+        td= article.title
+        td= link_to 'Show', article
+        td= link_to 'Edit', edit_article_path(article)
+        td= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+br
+  = link_to 'New article', new_article_path
