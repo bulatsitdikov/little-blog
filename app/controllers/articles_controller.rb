@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  expose (:article)
+  expose(:article, attributes: :article_params)
 
   def index
     @articles = Article.all
@@ -10,32 +10,32 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if @article.save
-      redirect_to @article
+    if article.save
+      redirect_to article
     else
       render 'new'
     end
   end
 
   def show
-    @article = Article.find(params[:id])
+    article
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = article
   end
 
   def update
-    if @article.update(article_params)
-      redirect_to @article
+    if article.update(article_params)
+      redirect_to article
     else
       render 'edit'
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    article = Article.find(params[:id])
+    article.destroy
 
     redirect_to articles_path
   end
