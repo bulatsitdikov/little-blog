@@ -7,6 +7,8 @@ gem 'rails', '4.0.4'
 gem 'json'
 gem 'pg'
 
+gem 'draper', '~> 1.3'
+
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 

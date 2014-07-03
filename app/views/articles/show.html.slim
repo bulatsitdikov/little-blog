@@ -1,0 +1,35 @@
+.row
+  .columns
+    p
+    h1 = article.title
+    p
+      = article.text
+
+    p
+    - if (article.user_id == current_user.id)
+        = link_to 'Edit', edit_article_path(article)
+        p
+        = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+
+    p
+
+    h2 Comments
+    - article.comments.includes(:article).each do |comment|
+      p
+        strong = current_user.to_s
+        p
+        = comment.body
+      p
+      - if (comment.user_id == current_user.id)
+          = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
+      p
+    = form_for([article, article.comments.build]) do |f|
+      p
+        = f.label :body
+      br
+        = f.text_area :body
+      p
+      = f.submit
+
+    p
+    = link_to 'Back', articles_path
