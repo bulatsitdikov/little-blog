@@ -23,7 +23,7 @@ module RailsBase
     # Application specific options
     #
     # Name used in the html titles and mailers
-    config.app_name = 'Rails Base example site'
+    config.app_name = 'Little Blog'
 
     # Slim engine default option, initializers/slim.rb
     config.slim_options = {}

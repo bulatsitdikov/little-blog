@@ -14,22 +14,8 @@
     p
 
     h2 Comments
-    - article.comments.includes(:article).each do |comment|
-      p
-        strong = current_user.to_s
-        p
-        = comment.body
-      p
-      - if (comment.user_id == current_user.id)
-          = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
-      p
-    = form_for([article, article.comments.build]) do |f|
-      p
-        = f.label :body
-      br
-        = f.text_area :body
-      p
-      = f.submit
-
+    = render article.comments.includes(:article)
+    br
+    = render 'comments/new'
     p
     = link_to 'Back', articles_path

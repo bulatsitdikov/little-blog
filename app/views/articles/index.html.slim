@@ -1,16 +1,12 @@
 .row
   .columns
     h1 Articles
-    table
-      thead
-        tr
-          th Article
-          th colspan="4"
-      tbody
-        - articles.each do |article|
-          tr
-            - unless (article.privacy && article.user_id != current_user.id)
-              td= article.title
-              td= link_to 'Show', article
+    - articles.each do |article|
+        - unless (article.privacy && article.user_id != current_user.id)
+          hr
+          = article.title
+          p
+          = link_to 'Show', article
+          hr
     br
       = link_to 'New article', new_article_path
