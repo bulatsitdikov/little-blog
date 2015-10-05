@@ -5,5 +5,4 @@ RailsBase::Application.routes.draw do
     resources :comments
   end
 
-  root to: 'artices#index'
 end
