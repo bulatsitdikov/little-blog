@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify ruby version for Heroku
-ruby '2.1.0'
+ruby '2.1.7'
 
 gem 'rails', '4.0.4'
 gem 'json'
